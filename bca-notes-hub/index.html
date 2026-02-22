@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCA HUB | CCSU Academic Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero-pattern { background-color: #1e40af; background-image: radial-gradient(#3b82f6 0.5px, transparent 0.5px); background-size: 20px 20px; }
+        .bento-card { border: 2px solid #e2e8f0; transition: all 0.3s ease; }
+        .bento-card:hover { border-color: #2563eb; transform: scale(1.02); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .nav-blur { backdrop-filter: blur(15px); background: rgba(255, 255, 255, 0.8); }
+        body { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans text-slate-900 overflow-x-hidden">
+
+    <nav class="nav-blur fixed top-0 w-full z-[100] border-b px-4 py-3 md:px-8">
+        <div class="container mx-auto flex justify-between items-center">
+            <div onclick="window.location.reload()" class="flex items-center gap-2 cursor-pointer">
+                <div class="bg-blue-700 p-2 rounded-lg text-white shadow-md"><i class="fas fa-university text-sm"></i></div>
+                <span class="text-xl md:text-2xl font-black text-slate-900 tracking-tighter uppercase">BCA<span class="text-blue-600">HUB</span></span>
+            </div>
+            <div id="profile-area">
+                <button id="setup-btn" onclick="openProfile()" class="bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-xs shadow-lg hover:bg-blue-700 transition-all uppercase tracking-widest">Join</button>
+                <div id="user-display" class="hidden flex items-center gap-3 bg-white p-1 pr-4 rounded-full border shadow-sm">
+                    <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-black text-xs" id="user-initial">U</div>
+                    <p id="display-name" class="text-xs font-bold uppercase truncate max-w-[80px] md:max-w-none"></p>
+                    <button onclick="clearUser()" class="text-slate-300 hover:text-red-600 ml-1"><i class="fas fa-times-circle"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="home-view">
+        <header class="hero-pattern text-white pt-32 pb-20 md:pt-48 md:pb-40 px-4 text-center">
+            <div class="container mx-auto">
+                <span class="bg-white/10 text-white px-4 py-1 rounded-full text-[10px] md:text-xs font-black mb-6 border border-white/20 uppercase tracking-[0.3em] inline-block">2026 CCSU EDITION</span>
+                <h1 class="text-5xl md:text-8xl font-black mb-6 leading-none tracking-tighter uppercase">Study <br><span class="text-blue-300 italic">Smarter.</span></h1>
+                <p class="text-lg md:text-xl text-blue-100 mb-10 max-w-2xl mx-auto font-medium px-4">The pro repository for CCSU BCA students. Notes, PYQs, and syllabus copies in one tap.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 px-6">
+                    <button onclick="navToNotes()" class="bg-white text-blue-800 px-10 py-4 rounded-xl font-black text-lg shadow-xl hover:scale-105 transition active:scale-95 uppercase">Go to Notes</button>
+                    <a href="#how-to" class="bg-blue-800/40 border border-white/20 px-10 py-4 rounded-xl font-black text-lg hover:bg-blue-800 transition uppercase">How it works</a>
+                </div>
+            </div>
+        </header>
+
+        <section class="container mx-auto px-4 -mt-10 relative z-10">
+            <div class="bg-white rounded-3xl p-6 md:p-10 grid grid-cols-2 md:grid-cols-4 gap-6 shadow-2xl text-center border border-slate-100">
+                <div><h4 class="text-3xl md:text-4xl font-black text-blue-600">14</h4><p class="text-slate-400 font-bold uppercase text-[10px] mt-1 tracking-widest">Subjects</p></div>
+                <div><h4 class="text-3xl md:text-4xl font-black text-blue-600">3-YR</h4><p class="text-slate-400 font-bold uppercase text-[10px] mt-1 tracking-widest">PYQ Papers</p></div>
+                <div><h4 class="text-3xl md:text-4xl font-black text-blue-600">FREE</h4><p class="text-slate-400 font-bold uppercase text-[10px] mt-1 tracking-widest">Full Access</p></div>
+                <div><h4 class="text-3xl md:text-4xl font-black text-blue-600">4-6</h4><p class="text-slate-400 font-bold uppercase text-[10px] mt-1 tracking-widest">Semesters</p></div>
+            </div>
+        </section>
+
+        <section id="how-to" class="py-20 container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black text-slate-800 mb-2 uppercase italic tracking-tight">The Pro Workflow</h2>
+                <div class="w-16 h-1 bg-blue-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-8 bg-white rounded-2xl border-2 border-slate-50 shadow-sm text-center">
+                    <div class="text-blue-600 text-3xl font-black mb-3 italic">01.</div>
+                    <h3 class="font-bold mb-2 uppercase tracking-tighter">Pick Semester</h3>
+                    <p class="text-slate-500 text-sm">Choose Sem 4, 5, or 6 to filter your subjects.</p>
+                </div>
+                <div class="p-8 bg-white rounded-2xl border-2 border-slate-50 shadow-sm text-center">
+                    <div class="text-green-500 text-3xl font-black mb-3 italic">02.</div>
+                    <h3 class="font-bold mb-2 uppercase tracking-tighter">View Files</h3>
+                    <p class="text-slate-500 text-sm">Access curated study notes and 3 previous year papers.</p>
+                </div>
+                <div class="p-8 bg-white rounded-2xl border-2 border-slate-50 shadow-sm text-center">
+                    <div class="text-purple-500 text-3xl font-black mb-3 italic">03.</div>
+                    <h3 class="font-bold mb-2 uppercase tracking-tighter">Download PDF</h3>
+                    <p class="text-slate-500 text-sm">Direct, high-speed downloads for offline studying.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="notes-view" class="hidden min-h-screen pt-28 pb-20">
+        <div class="container mx-auto px-4">
+            <button onclick="navToHome()" class="text-blue-600 font-black mb-8 block text-xs tracking-widest uppercase hover:translate-x-[-5px] transition-all"><i class="fas fa-arrow-left"></i> Home</button>
+            
+            <div class="flex justify-center mb-10">
+                <a id="syllabus-btn" href="#" target="_blank" class="bg-yellow-400 text-yellow-900 px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-[0.2em] shadow-lg hover:bg-yellow-300 transition-all flex items-center gap-3">
+                    <i class="fas fa-file-pdf"></i> Download Semester Syllabus
+                </a>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button id="t4" onclick="loadData('4')" class="px-8 py-3 rounded-xl font-black text-sm transition-all shadow-md uppercase">Sem 4</button>
+                <button id="t5" onclick="loadData('5')" class="px-8 py-3 rounded-xl font-black text-sm transition-all shadow-md uppercase">Sem 5</button>
+                <button id="t6" onclick="loadData('6')" class="px-8 py-3 rounded-xl font-black text-sm transition-all shadow-md uppercase">Sem 6</button>
+            </div>
+            
+            <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+    </div>
+
+    <div id="modal" class="fixed inset-0 bg-slate-900/90 backdrop-blur-md z-[200] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-8 md:p-12 max-w-lg w-full shadow-2xl">
+            <div class="flex justify-between items-center mb-8">
+                <h3 id="m-name" class="text-2xl font-black text-slate-800 uppercase tracking-tighter leading-none italic">Subject</h3>
+                <button onclick="closeModal()" class="text-3xl text-slate-300 hover:text-red-500">&times;</button>
+            </div>
+            <div id="m-list" class="space-y-4"></div>
+        </div>
+    </div>
+
+    <div id="l-popup" class="fixed inset-0 bg-slate-900/95 backdrop-blur-md z-[200] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-10 max-w-sm w-full text-center">
+            <h3 class="text-3xl font-black mb-6 tracking-tighter uppercase leading-none italic">Join Hub</h3>
+            <input type="text" id="l-input" placeholder="Your Name" class="w-full border-2 p-4 rounded-xl mb-6 font-bold text-center outline-none focus:border-blue-600 uppercase tracking-tighter">
+            <button onclick="saveUser()" class="w-full bg-blue-600 text-white py-4 rounded-xl font-black text-lg shadow-xl uppercase">Continue</button>
+        </div>
+    </div>
+
+    <footer class="bg-slate-900 text-white py-16 px-6 text-center">
+        <p class="text-xl font-bold italic tracking-tighter">BCA HUB BY <span class="text-blue-500 font-black uppercase">UMANG</span></p>
+        <p class="text-slate-500 font-bold uppercase text-[10px] mt-4 tracking-[0.4em]">CCS University Academic Project © 2026</p>
+    </footer>
+
+    <script>
+        const appData = {
+            "4": { 
+                syllabus: "assets/syllabus/sem4.pdf",
+                subjects: [
+                    { code: "BCA-401", name: "Computer Graphics", files: [{t: "Main Notes", l: "#"}, {t: "2024 PYQ", l: "#"}, {t: "2023 PYQ", l: "#"}, {t: "2022 PYQ", l: "#"}]},
+                    { code: "BCA-402", name: "Operating System", files: [{t: "Main Notes", l: "#"}, {t: "2024 PYQ", l: "#"}, {t: "2023 PYQ", l: "#"}, {t: "2022 PYQ", l: "#"}]},
+                    { code: "BCA-403", name: "Software Engineering", files: [{t: "Main Notes", l: "#"}, {t: "2024 PYQ", l: "#"}, {t: "2023 PYQ", l: "#"}, {t: "2022 PYQ", l: "#"}]},
+                    { code: "BCA-404", name: "Optimization", files: [{t: "Main Notes", l: "#"}, {t: "2024 PYQ", l: "#"}, {t: "2023 PYQ", l: "#"}, {t: "2022 PYQ", l: "#"}]}
+                ]
+            },
+            "5": { 
+                syllabus: "assets/syllabus/sem5.pdf",
+                subjects: [
+                    { code: "BCA-501", name: "Java Programming", files: [{t: "Main Notes", l: "#"}, {t: "2024 PYQ", l: "#"}, {t: "2023 PYQ", l: "#"}, {t: "2022 PYQ", l: "#"}]},
+                    { code: "BCA-502", name: "Network Security", files: [{t: "Main Notes", l: "#"}, {t: "2024 PYQ", l: "#"}, {t: "2023 PYQ", l: "#"}, {t: "2022 PYQ", l: "#"}]},
+                    { code: "BCA-503", name: "Software Eng II", files: [{t: "Main Notes", l: "#"}, {t: "2024 PYQ", l: "#"}]},
+                    { code: "BCA-504", name: "Data Comm", files: [{t: "Main Notes", l: "#"}, {t: "2024 PYQ", l: "#"}]}
+                ]
+            },
+            "6": { 
+                syllabus: "assets/syllabus/sem6.pdf",
+                subjects: [
+                    { code: "BCA-601", name: "Network Mgmt", files: [{t: "Main Notes", l: "#"}, {t: "2024 PYQ", l: "#"}, {t: "2023 PYQ", l: "#"}]},
+                    { code: "BCA-602", name: "Info System", files: [{t: "Main Notes", l: "#"}, {t: "2024 PYQ", l: "#"}]},
+                    { code: "BCA-603", name: "E-Commerce", files: [{t: "Main Notes", l: "#"}, {t: "2024 PYQ", l: "#"}]},
+                    { code: "BCA-604", name: "Knowledge Mgmt", files: [{t: "Main Notes", l: "#"}, {t: "2024 PYQ", l: "#"}, {t: "2023 PYQ", l: "#"}, {t: "2022 PYQ", l: "#"}]}
+                ]
+            }
+        };
+
+        function navToNotes() { document.getElementById('home-view').classList.add('hidden'); document.getElementById('notes-view').classList.remove('hidden'); loadData('4'); window.scrollTo(0,0); }
+        function navToHome() { document.getElementById('home-view').classList.remove('hidden'); document.getElementById('notes-view').classList.add('hidden'); window.scrollTo(0,0); }
+        
+        function loadData(n) {
+            [4,5,6].forEach(s => { document.getElementById(`t${s}`).className = s == n ? "px-8 py-3 rounded-xl font-black text-sm bg-blue-600 text-white shadow-xl" : "px-8 py-3 rounded-xl font-black text-sm bg-white text-slate-400 border"; });
+            
+            // Set Syllabus Link
+            document.getElementById('syllabus-btn').href = appData[n].syllabus;
+
+            const grid = document.getElementById('grid'); grid.innerHTML = "";
+            appData[n].subjects.forEach((sub, i) => {
+                grid.innerHTML += `<div onclick="openModal('${n}', ${i})" class="bg-white p-8 rounded-2xl bento-card cursor-pointer shadow-sm">
+                    <span class="text-blue-600 font-black text-[10px] uppercase bg-blue-50 px-3 py-1 rounded-full mb-4 inline-block tracking-widest">${sub.code}</span>
+                    <h3 class="text-xl font-black text-slate-900 leading-tight mb-6 uppercase italic">${sub.name}</h3>
+                    <div class="flex justify-between items-center text-slate-300 font-black text-[10px] tracking-widest border-t pt-4"><span>EXPLORE FILES</span><i class="fas fa-plus"></i></div>
+                </div>`;
+            });
+        }
+
+        function openModal(sem, idx) {
+            const sub = appData[sem].subjects[idx]; document.getElementById('m-name').innerText = sub.name;
+            const list = document.getElementById('m-list'); list.innerHTML = "";
+            sub.files.forEach(f => {
+                list.innerHTML += `<a href="${f.l}" target="_blank" class="flex items-center p-4 bg-slate-50 rounded-xl border border-slate-100 hover:bg-blue-50 transition-all font-black text-[11px] uppercase tracking-tight">
+                    <i class="far fa-file-pdf mr-3 text-lg text-red-500"></i> ${f.t} <i class="fas fa-download ml-auto text-blue-600 opacity-30"></i>
+                </a>`;
+            });
+            document.getElementById('modal').classList.remove('hidden');
+        }
+
+        function closeModal() { document.getElementById('modal').classList.add('hidden'); }
+        function openProfile() { document.getElementById('l-popup').classList.remove('hidden'); }
+        function saveUser() { const n = document.getElementById('l-input').value; if(n) { localStorage.setItem('hub_vpro', n); updateUI(n); document.getElementById('l-popup').classList.add('hidden'); } }
+        function updateUI(n) { document.getElementById('setup-btn').classList.add('hidden'); document.getElementById('user-display').classList.remove('hidden'); document.getElementById('display-name').innerText = n; document.getElementById('user-initial').innerText = n.charAt(0).toUpperCase(); }
+        function clearUser() { localStorage.removeItem('hub_vpro'); location.reload(); }
+        window.onload = () => { const n = localStorage.getItem('hub_vpro'); if(n) updateUI(n); };
+    </script>
+</body>
+</html>
