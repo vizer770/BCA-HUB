@@ -1,6 +1,6 @@
 # BCA HUB | CCSU Academic Resource Portal 🎓
 
-A professional, high-performance web application built for **CCS University** BCA students to access study materials easily. Developed by **Umang**, a 4th-semester BCA student.
+A professional, high-performance web application built for **CCS University** BCA students to access study materials easily. Developed by **Umang**, a BCA student.
 
 ## 🚀 Features
 - **Comprehensive Resources:** Notes and 3-year PYQ banks (2022-2024) for Semesters 4, 5, and 6.
